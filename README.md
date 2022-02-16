@@ -1,5 +1,5 @@
 # chemical-equation-balancer
-This is very smol website to balance chemical equations
+This is very smol website to balance chemical equations.
 
 ## Original version in portuguese hosted [here](https://acertador.lucaslinhares2.repl.co)
 
