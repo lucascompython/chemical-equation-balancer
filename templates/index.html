@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acertador</title>
+</head>
+<body>
+  <style>
+    body {
+      background: url("https://cdn.discordapp.com/attachments/628637327878520872/943270617384374292/IMG-20220215-WA0002.jpg");
+    }
+  </style>
+    <center>
+      
+      <h1>Quem utlizar este site concorda que Linux é superior a Windows</h1>
+      <h2>Acertador de equações quimicas</h2>
+      <form action="/" method = "POST">
+      <p>Reagentes: <input type = "text" name = "reactants" /></p>
+      <p>Produtos: <input type = "text" name = "products" /></p>
+      <p><input type = "submit" value = "submit" /></p>
+      {% if form_data %}
+        <p>Resultados: </p>
+        {{ output }}
+      {% elif error %}
+        <h3 style="color: red">{{error}}</h3>
+      {% endif %}
+      <footer><a href="https://github.com/lucascompython">Site feito pelo Lucas do Drip😎<a/></footer>
+    </center>
+</form>
+</body>
+</html>
