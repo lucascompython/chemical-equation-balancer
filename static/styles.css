@@ -1,0 +1,43 @@
+body {
+  color: #536482;
+  background-color: #F5F7FA;
+  background-size: 75px 75px;
+  background-image: url(https://www.webqc.org/css/images/hexagon.svg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.social{
+
+  border-radius: 10px;
+  position: fixed;
+  bottom: 15px;
+  width:99%;
+}
+
+.social a{
+
+  color: gray;
+  padding-left: 5px;
+}
+.social a:hover{
+
+  color: #4f4f4f;
+}
+
+.social1{
+  border-radius: 10px;
+  font-size: 30px;
+ 
+  position: fixed;
+  padding: 14px ;
+  top  : 15px;
+  width: 99%;
+}
+
+.social1 a{
+color: gray;
+padding-left: 5px;
+}
+.social a:hover{
+
+color: #4f4f4f;
+}
