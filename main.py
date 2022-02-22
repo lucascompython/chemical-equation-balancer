@@ -10,16 +10,7 @@ from sympy import Matrix, lcm
 elementList = []
 elementMatrix = []
 
-# print("please input your reactants, this is case sensitive")
-# print("your input should look like: H2O+Ag3(Fe3O)4")
 
-# reactants=input("Reactants: ")
-
-# print("please input your products, this is case sensitive")
-
-# products=input("Products: ")
-# reactants=reactants.replace(' ', '').split("+")
-# products=products.replace(' ', '').split("+")
 
 def addToMatrix(element, index, count, side):
     global elementMatrix, elementList
