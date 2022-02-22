@@ -5,29 +5,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acertador</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='chem.png')}}"/>
+  <script src="{{url_for('static', filename='scripts.js')}}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  
+ 
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script src="https://kit.fontawesome.com/0ec7756a65.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
-  <style>
-    body {
-      background: url("https://cdn.discordapp.com/attachments/628637327878520872/943270617384374292/IMG-20220215-WA0002.jpg");
-    }
-  </style>
-    <center>
-      
-      <h1>Quem utlizar este site concorda que Linux é superior a Windows</h1>
-      <h2>Acertador de equações quimicas</h2>
-      <form action="/" method = "POST">
-      <p>Reagentes: <input type = "text" name = "reactants" /></p>
-      <p>Produtos: <input type = "text" name = "products" /></p>
-      <p><input type = "submit" value = "submit" /></p>
-      {% if form_data %}
-        <p>Resultados: </p>
-        {{ output }}
-      {% elif error %}
-        <h3 style="color: red">{{error}}</h3>
-      {% endif %}
-      <footer><a href="https://github.com/lucascompython">Site feito pelo Lucas do Drip😎<a/></footer>
-    </center>
-</form>
+  
+    <div class="main">
+      <center>
+        
+        <h1>Quem utlizar este site concorda que Linux é superior a Windows</h1>
+        <h2>Acertador de equações quimicas</h2>
+        <form action="/" method = "POST">
+          <label>Reagentes: <input type = "text" name = "reactants" /></label><br />
+          <label>Produtos: <input type = "text" name = "products" /></label><br />
+          <input id="submitButton" type="submit" value="Submeter"/>
+        </form>
+        {% if error %}
+          <h3 style="color: red">{{error}}</h3>
+        {% elif form_data %}
+          <p>Resultados: </p>
+          <span id="results">{{ output }}</span>
+        {% endif %}
+
+      </center>
+    </div>
+    <div style="text-align:center; border-radius: 10px;
+      position: fixed;
+      bottom: 15px;
+      width:99%;" 
+       class="social"
+      >
+    
+      <div style="text-align:center;" >
+        <a href="https://twitter.com/L33tRoccat" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="https://www.instagram.com/lucas_delinhares/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="https://discord.gg/Eheq3KkSYj" target="_blank"><i class="fab fa-discord fa-2x"></i></a>
+        <a href="https://github.com/lucascompython" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+      </div>
+    <footer><a href="https://github.com/lucascompython">Site feito por Lucas de Linhares😎</a>
+    </footer>
+    </div>
+
 </body>
 </html>
