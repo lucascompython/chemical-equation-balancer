@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   
  
-   
+    
     <script src="https://kit.fontawesome.com/0ec7756a65.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -19,12 +19,12 @@
   
     <div class="main">
       <center>
-        
+            
         <h1>Acertador de equações químicas</h1>
         <h2>Insira a equação</h2>
         <form action="/" method = "POST">
-          <label>Reagentes: <input type = "text" name = "reactants" /></label><br />
-          <label>Produtos: <input type = "text" name = "products" /></label><br />
+          <input type = "text" name = "reactants" placeholder="Reagentes"/><br />
+          <input type = "text" name = "products"  placeholder="Produtos"/><br />
           <input id="submitButton" type="submit" value="Submeter"/>
         </form>
         {% if error %}
