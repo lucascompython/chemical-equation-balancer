@@ -11,6 +11,19 @@ body {
   position: fixed;
   bottom: 15px;
   width:99%;
+  
+
+  position: absolute;
+  
+  
+  bottom: 0;
+  
+  
+  left: 0;
+  
+  right: 0;
+
+
 }
 
 .social a{
@@ -41,3 +54,4 @@ padding-left: 5px;
 
 color: #4f4f4f;
 }
+
