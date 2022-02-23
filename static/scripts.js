@@ -13,12 +13,12 @@ const ajustResults = (element) => {
 
   
   const sliced = [];
-  console.log(results)
+
   for (let elemento of results) {
     if (elemento[0] === "1")
-      sliced.push(elemento.substring(1))
+      sliced.push(elemento.substring(1));
     else {
-      sliced.push(elemento)
+      sliced.push(elemento);
     }
     
   }
@@ -27,5 +27,5 @@ const ajustResults = (element) => {
   const regSubbed = sliced.join(" ").replace(/\B(\d+)/g, '<sub>$1</sub>');
   const ajusted = document.getElementById("results").innerHTML = regSubbed;
 
-  console.log(ajusted)
+  console.log(ajusted);
 }
