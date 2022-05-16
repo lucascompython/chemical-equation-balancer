@@ -52,6 +52,12 @@ padding-left: 5px;
 }
 .social a:hover{
 
-color: #4f4f4f;
+  color: #4f4f4f;
 }
 
+.tabela {
+  width:540px;
+  height: auto;
+  
+}
+*,*:hover,*:focus,*:active { outline: 0px none; } 
