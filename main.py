@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 import re
 from sympy import Matrix, lcm
 
-
+from chemlib import Compound
 
 elementList = []
 elementMatrix = []
@@ -28,11 +28,11 @@ def addToMatrix(element, index, count, side):
         for i in range(len(elementMatrix)):
             elementMatrix[i].append(0)
 
-    column=elementList.index(element)
+    column = elementList.index(element)
     elementMatrix[index][column] += count * side
 
 def findElements(segment,index, multiplier, side):
-    elementsAndNumbers=re.split('([A-Z][a-z]?)',segment)
+    elementsAndNumbers = re.split('([A-Z][a-z]?)',segment)
     i = 0
     try:
         
@@ -51,7 +51,7 @@ def findElements(segment,index, multiplier, side):
       return render_template("index.html", error="Os reagentes e os produtos não batem certo...")
 
 def compoundDecipher(compound, index, side):
-    segments=re.split('(\([A-Za-z0-9]*\)[0-9]*)',compound)
+    segments = re.split('(\([A-Za-z0-9]*\)[0-9]*)',compound)
     for segment in segments:
         if segment.startswith("("):
             segment = re.split('\)([0-9]*)', segment)
@@ -65,7 +65,7 @@ def compoundDecipher(compound, index, side):
 
 
 
-app = Flask('app')
+app = Flask('Acertador')
 
 @app.route('/', methods = ["POST", "GET"])
 def hello_world():
@@ -76,10 +76,36 @@ def hello_world():
   elif request.method == "POST":
     
     form_data = dict(request.form)
+    #new tabela
+    
+    try:
+      info = Compound(form_data["tabela"])
+      return render_template("index.html", info = info.molar_mass(), nome = form_data["tabela"])
+    except IndexError:
+      return render_template("index.html", error_tabela="Digite um Elemento valido...")
+    except KeyError:
+      pass
+      
     print(form_data)
-    reactants = str(form_data["reactants"])
-    products = str(form_data["products"])
-    print(reactants, products)
+    new_advanced = {}
+    for key, value in form_data.items():
+      if key == "reactants":
+        reactants = str(value)
+      elif key == "products":
+        products = str(value)
+      else:
+        if value:
+          elemento = key.split("_")[1]
+          novo_elemento = Compound(elemento)
+          print("ELEMENTO", elemento, novo_elemento.get_amounts(grams = float(value)))
+          
+          return render_template("index.html", advanced_results = novo_elemento, gramas = novo_elemento.get_amounts(grams = float(value))["moles"])
+          #print(novo_elemento.)
+#    gramas = form_data["gramas"]
+#    moles = form_data["moles"]
+    
+    
+    #print(reactants, products)
     if reactants.endswith("+") or products.endswith("+") or reactants.endswith("+ ") or products.endswith("+ "):
       elementMatrix = []
       elementList = []
@@ -113,7 +139,7 @@ def hello_world():
         output += str(coEffi[i][0])+reactants[i]
         if i < len(reactants) -1:
            output += " + "
-    output+=" -> "
+    output += " -> "
     try:
         
       for i in range(len(products)):
@@ -123,14 +149,14 @@ def hello_world():
     except IndexError:
       elementMatrix = []
       elementList = []
-      return render_template("index.html", error="Os reagentes e os produtos não batem certo...")
-    print(output)
-    print(elementMatrix, elementList)
+      return render_template("index.html", error = "Os reagentes e os produtos não batem certo...")
+    #print(output)
+    #print(elementMatrix, elementList)
     elementMatrix = []
     elementList = []
 
     
-    return render_template("index.html", form_data = form_data, output=output)
+    return render_template("index.html", form_data = form_data, output = output)
   else:
     return "FUCK ROBOTS"
 
