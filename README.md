@@ -1,6 +1,9 @@
 # chemical-equation-balancer
 This is very smol website to balance chemical equations.
 
+## This test version is built with [chemlib](https://pypi.org/project/chemlib/)
+
+
 ## Original version in portuguese hosted [here](https://acertador.lucaslinhares2.repl.co).
 
 ## Installation
